@@ -1,0 +1,13 @@
+#!/bin/bash
+
+RETVAL=0
+while [[ ${RETVAL} -eq 0 ]]; do
+  logrotate /etc/logrotate.conf
+  RETVAL=${?}
+  if [[ ${RETVAL} -ne 0 ]]; then
+    exit 1
+  else
+    sleep 1800
+  fi
+done
+
